@@ -4,6 +4,7 @@ import "./App.css";
 import fetchMovie from "./components/api";
 import Loading from "./components/loading";
 import MovieList from "./movie-info";
+import Navbar from "./components/navbar";
 
 class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class App extends React.Component {
     };
 
     this.getData = this.getData.bind(this);
+    this.handleChangeMovie = this.handleChangeMovie.bind(this);
   }
 
   componentDidMount() {
@@ -53,6 +55,10 @@ class App extends React.Component {
     }
     return (
       <div>
+        <Navbar
+          activeMovie={this.state.activeMovie}
+          changeMovie={this.handleChangeMovie}
+        />
         <MovieList movies={this.state.allMovies} />
       </div>
     );
