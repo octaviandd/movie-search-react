@@ -12,7 +12,7 @@ class App extends React.Component {
 
     this.state = {
       activeMovie: "avengers",
-      loading: false,
+      loading: true,
       allMovies: []
     };
 
@@ -21,6 +21,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.state.allMovies);
     this.getData(this.state.activeMovie);
   }
 
@@ -59,7 +60,7 @@ class App extends React.Component {
           activeMovie={this.state.activeMovie}
           changeMovie={this.handleChangeMovie}
         />
-        <MovieList movies={this.state.allMovies} />
+        <MovieList movies={this.state.allMovies[0]} />
       </div>
     );
   }
