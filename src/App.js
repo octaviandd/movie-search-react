@@ -1,10 +1,12 @@
 /** @format */
 import React from "react";
 import "./App.css";
-import fetchMovie from "./components/api";
+import fetchMovie from "./components/main-movie";
 import Loading from "./components/loading";
-import MovieList from "./movie-info";
+import MovieList from "./components/movie-list";
 import Navbar from "./components/navbar";
+import GithubLogo from "./components/github";
+import fetchSimilarMovies from "./components/similar-movie-api";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +15,9 @@ class App extends React.Component {
     this.state = {
       activeMovie: "avengers",
       loading: true,
-      allMovies: []
+      mainMovie: [],
+      id: [],
+      similarMovies: []
     };
 
     this.getData = this.getData.bind(this);
@@ -21,18 +25,25 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.state.allMovies);
     this.getData(this.state.activeMovie);
   }
 
-  getData(movie) {
+  async getData(movie) {
     this.setState({
       loading: true
     });
 
-    fetchMovie(movie).then(data => {
+    await fetchMovie(movie).then(data => {
       this.setState({
-        allMovies: data,
+        mainMovie: data,
+        loading: true,
+        id: data[0].id
+      });
+    });
+
+    await fetchSimilarMovies(this.state.id).then(data => {
+      this.setState({
+        similarMovies: data,
         loading: false
       });
     });
@@ -56,11 +67,16 @@ class App extends React.Component {
     }
     return (
       <div>
+        <GithubLogo />
         <Navbar
           activeMovie={this.state.activeMovie}
           changeMovie={this.handleChangeMovie}
         />
-        <MovieList movies={this.state.allMovies[0]} />
+        <MovieList
+          id={this.state.id}
+          movie={this.state.mainMovie[0]}
+          movies={this.state.similarMovies}
+        />
       </div>
     );
   }
