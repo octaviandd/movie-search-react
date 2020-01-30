@@ -1,5 +1,4 @@
 /** @format */
-/** @format */
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +7,15 @@
 
 body {
   background-color: #181539;
+}
+
+#loading-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: white;
 }
 
 #nav {
@@ -76,4 +84,50 @@ body {
   border-collapse: collapse;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+#main-movie-2 img {
+  border-radius: 7px;
+}
+
+#logo {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+}
+
+#logo i {
+  text-decoration: none;
+  color: white;
+  font-size: 40px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#logo i:hover {
+  transform: scale(1.4, 1.4);
+}
+
+#suggested-movies {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+  align-items: center;
+}
+
+#suggested-movies-2 {
+  display: flex;
+  align-items: center;
+}
+
+#suggested-movies-2 img {
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
+#suggested-movies-2 i {
+  font-size: 30px;
+  cursor: pointer;
 }
