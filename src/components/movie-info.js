@@ -16,10 +16,32 @@ class MovieList extends React.Component {
   increaseCount = () => {
     this.setState(currentState => {
       return {
-        count: currentState.count + 1
+        count:
+          currentState.count >= 19
+            ? (this.state.count = 1)
+            : currentState.count + 1
       };
     });
-    console.log(this.state.count);
+  };
+
+  decreaseCount = () => {
+    this.setState(currentState => {
+      return {
+        count:
+          currentState.count === 0
+            ? (this.state.count = 19)
+            : currentState.count - 1
+      };
+    });
+  };
+
+  handlePreviousMovie = () => {
+    this.setState(currentState => {
+      return {
+        activeMovie: this.props.movies[this.state.count]
+      };
+    });
+    this.decreaseCount();
   };
 
   handleNextMovie = () => {
@@ -65,17 +87,40 @@ class MovieList extends React.Component {
           <div id="suggested-movies-2">
             <div>
               <i
-                onClick={() => this.handleNextMovie()}
+                onClick={() => this.handlePreviousMovie()}
                 className="far fa-arrow-alt-circle-left"
               ></i>
             </div>
             <img
+              style={{ position: "relative", left: "220px", opacity: 0.3 }}
+              src={`http://image.tmdb.org/t/p/w154/${
+                this.props.movies[Math.floor(Math.random() * 18)].poster_path
+              }`}
+              alt="suggested"
+            ></img>
+            <img
+              style={{ position: "relative", zIndex: 10 }}
               src={`http://image.tmdb.org/t/p/w185/${this.state.activeMovie.poster_path}`}
               alt="suggested"
             ></img>
+            <img
+              style={{ position: "relative", right: "220px", opacity: 0.3 }}
+              src={`http://image.tmdb.org/t/p/w154/${
+                this.props.movies[Math.floor(Math.random() * 18)].poster_path
+              }`}
+              alt="suggested"
+            ></img>
             <div>
-              <i className="far fa-arrow-alt-circle-right"></i>{" "}
+              <i
+                onClick={() => this.handleNextMovie()}
+                className="far fa-arrow-alt-circle-right"
+              ></i>
             </div>
+          </div>
+          <div>
+            <h3 id="suggested-movie-title">
+              {this.state.activeMovie.original_title}
+            </h3>
           </div>
         </div>
       </div>
