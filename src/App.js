@@ -4,9 +4,11 @@ import "./App.css";
 import fetchMovie from "./components/main-movie";
 import Loading from "./components/loading";
 import MovieList from "./components/movie-list";
-import Navbar from "./components/navbar";
+import Navbar from "./components/movie-search";
 import GithubLogo from "./components/github";
 import fetchSimilarMovies from "./components/similar-movie-api";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import PopularMovies from "./components/popular-movies";
 
 class App extends React.Component {
   constructor(props) {
@@ -66,18 +68,35 @@ class App extends React.Component {
       return <Loading />;
     }
     return (
-      <div>
-        <GithubLogo />
-        <Navbar
-          activeMovie={this.state.activeMovie}
-          changeMovie={this.handleChangeMovie}
-        />
-        <MovieList
-          id={this.state.id}
-          movie={this.state.mainMovie[0]}
-          movies={this.state.similarMovies}
-        />
-      </div>
+      <Router>
+        <div>
+          <div id="navbar">
+            <ul>
+              <li>
+                <Link to="/search">Movie Search</Link>
+              </li>
+              <li>
+                <Link to="/popular">Popular Movies</Link>
+              </li>
+              <li>
+                <Link to="/filter">Movie Filter</Link>
+              </li>
+            </ul>
+          </div>
+
+          <Route exact path="/popular" component={PopularMovies}></Route>
+          <GithubLogo />
+          <Navbar
+            activeMovie={this.state.activeMovie}
+            changeMovie={this.handleChangeMovie}
+          />
+          <MovieList
+            id={this.state.id}
+            movie={this.state.mainMovie[0]}
+            movies={this.state.similarMovies}
+          />
+        </div>
+      </Router>
     );
   }
 }
