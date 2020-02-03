@@ -84,7 +84,7 @@ class App extends React.Component {
             </ul>
           </div>
 
-          <Route exact path="/popular" component={PopularMovies}></Route>
+         
           <GithubLogo />
           <Navbar
             activeMovie={this.state.activeMovie}
