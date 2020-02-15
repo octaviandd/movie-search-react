@@ -1,1 +1,143 @@
 /** @format */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background-color: #181539;
+}
+
+#loading-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: white;
+}
+
+#nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  height: 300px;
+}
+
+#nav input {
+  width: 450px;
+  height: 50px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  padding-left: 10px;
+  font-size: 15px;
+}
+
+#nav button {
+  background-color: white;
+  height: 50px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  padding-right: 10px;
+  font-size: 15px;
+}
+
+#main-movie {
+  color: white;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+#main-movie-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#main-movie-2 h1 {
+  margin-bottom: 50px;
+}
+
+#main-movie-2 h4 {
+  font-style: italic;
+  margin-top: 30px;
+}
+
+#main-movie-2 td {
+  width: 200px;
+  text-align: center;
+  border-bottom: 1px solid white;
+  padding: 20px;
+}
+
+#main-movie-2 th {
+  width: 200px;
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+
+#main-movie-2 table {
+  border: 1px solid white;
+  border-collapse: collapse;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#main-movie-2 img {
+  border-radius: 7px;
+}
+
+#logo {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+}
+
+#logo i {
+  text-decoration: none;
+  color: white;
+  font-size: 40px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#logo i:hover {
+  transform: scale(1.4, 1.4);
+}
+
+#suggested-movies {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+  align-items: center;
+}
+
+#suggested-movies-2 {
+  display: flex;
+  align-items: center;
+}
+
+#suggested-movies-2 img {
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-top: 50px;
+  border-radius: 6px;
+}
+
+#suggested-movies-2 i {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#suggested-movie-title {
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
+#navbar {
+  color: white;
+}
