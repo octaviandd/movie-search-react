@@ -36,6 +36,9 @@ class App extends React.Component {
     });
 
     await fetchMovie(movie).then(data => {
+      if (data[0] === undefined) {
+        alert("No movie found");
+      }
       this.setState({
         mainMovie: data,
         loading: true,
