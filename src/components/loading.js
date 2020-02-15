@@ -26,7 +26,11 @@ class Loading extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
     return <p id="loading-message">{this.state.text}</p>;
+=======
+    return <p>{this.state.text}</p>;
+>>>>>>> e9d80ae3ce884ebf0ed9f5d8f99e484125bd0fbc
   }
 }
 

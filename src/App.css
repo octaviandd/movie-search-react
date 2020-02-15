@@ -125,13 +125,17 @@ body {
   margin-right: 100px;
   margin-left: 100px;
   margin-top: 50px;
+<<<<<<< HEAD
   border-radius: 6px;
+=======
+>>>>>>> e9d80ae3ce884ebf0ed9f5d8f99e484125bd0fbc
 }
 
 #suggested-movies-2 i {
   font-size: 30px;
   cursor: pointer;
 }
+<<<<<<< HEAD
 
 #suggested-movie-title {
   margin-top: 20px;
@@ -141,3 +145,5 @@ body {
 #navbar {
   color: white;
 }
+=======
+>>>>>>> e9d80ae3ce884ebf0ed9f5d8f99e484125bd0fbc
